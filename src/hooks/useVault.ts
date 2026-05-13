@@ -16,8 +16,6 @@
  */
 
 import { useState, useCallback, useEffect } from 'react';
-import { getVaultContract, VAULT_CONTRACT_ID } from '../services/stellar/contractHelpers';
-import { getNetworkConfig } from '../services/stellar/networkConfig';
 import { useWallet } from './useWallet';
 
 /**
@@ -52,7 +50,7 @@ export interface TransactionRecord {
  */
 export const useVault = () => {
   // Access the wallet context for the current user's address and signing capabilities
-  const { address, signTransaction } = useWallet();
+  const { address } = useWallet();
   
   // State for the user's vault balance
   const [balance, setBalance] = useState<string>('0');

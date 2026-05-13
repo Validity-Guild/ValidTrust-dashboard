@@ -1,10 +1,5 @@
-import { useState, useEffect } from 'react';
-import { 
-  isConnected, 
-  getPublicKey, 
-  signTransaction, 
-  setAllowed
-} from '@stellar/freighter-api';
+import { useEffect, useState } from 'react';
+import { getPublicKey, isConnected, setAllowed, signTransaction } from '@stellar/freighter-api';
 
 export const useWallet = () => {
   const [address, setAddress] = useState<string | null>(null);
@@ -19,7 +14,7 @@ export const useWallet = () => {
           setAddress(publicKey);
         }
       } catch (err) {
-        console.error("Failed to check wallet connection:", err);
+        console.error('Failed to check wallet connection:', err);
       }
     };
     checkConnection();
@@ -36,8 +31,10 @@ export const useWallet = () => {
       } else {
         setError('Wallet connection rejected');
       }
-    } catch (err: any) {
-      setError(err.message || 'Failed to connect wallet');
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : typeof err === 'string' ? err : 'Failed to connect wallet';
+      setError(message);
     } finally {
       setIsConnecting(false);
     }
