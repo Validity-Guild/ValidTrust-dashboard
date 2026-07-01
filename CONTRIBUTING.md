@@ -1,13 +1,13 @@
-# Contributing to Validity Dashboard
+# Contributing to ValidTrust Dashboard
 
-Thank you for your interest in contributing to the Validity Dashboard! We are excited to build this open-source Web3 interface together.
+Thank you for your interest in contributing to the ValidTrust Dashboard! We are excited to build this open-source Web3 interface together.
 
 ## Getting Started
 
 1. **Fork the repository** on GitHub.
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/your-username/validity-dashboard.git
+   git clone https://github.com/your-username/validtrust-dashboard.git
    ```
 3. **Install dependencies**:
    ```bash
@@ -29,6 +29,24 @@ Thank you for your interest in contributing to the Validity Dashboard! We are ex
   ```
 - Make sure to update the documentation in the `docs/` directory if you introduce architectural changes.
 
+## Drips and Drips Wave Contribution
+
+This project participates in [Drips](https://drips.network) and [Drips Wave](https://docs.drips.network/wave/).
+
+### Finding Issues to Work On
+- Look for issues labeled with:
+  - `good first issue` - Great for first-time contributors
+  - `help wanted` - Issues that need assistance
+  - `drips-wave` - Issues eligible for Drips Wave
+  - `bounty-ready` - Issues with potential bounties
+
+### Drips Wave Tasks
+Issues labeled `drips-wave` are eligible for Drips Wave contribution cycles. These issues typically have:
+- Clear acceptance criteria
+- Estimated difficulty level
+- Expected files or modules to modify
+- Testing requirements
+
 ## Open TODOs for Contributors
 
 We have several features planned that you can help build:
@@ -42,7 +60,7 @@ We have several features planned that you can help build:
 
 1. Commit your changes with descriptive messages.
 2. Push your branch to your fork on GitHub.
-3. Open a Pull Request against the `main` branch of the `validity-network/validity-dashboard` repository.
+3. Open a Pull Request against the `main` branch of the `validtrust-network/validtrust-dashboard` repository.
 4. Ensure your PR description clearly explains the changes and references any related issues.
 
 ## Reporting Bugs and Feature Requests
