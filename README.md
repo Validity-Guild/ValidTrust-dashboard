@@ -1,6 +1,6 @@
 <div align="center">
 
-![ValidTrust Dashboard Logo](logo/valid%20dashboard%20logo.png)
+<img src="logo/valid%20dashboard%20logo.png" alt="ValidTrust Dashboard Logo" width="120" height="120" />
 
 # ValidTrust Dashboard
 
