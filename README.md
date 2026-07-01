@@ -1,5 +1,7 @@
 <div align="center">
 
+![ValidTrust Dashboard Logo](logo/valid%20dashboard%20logo.png)
+
 # ValidTrust Dashboard
 
 **A modern Web3 interface for interacting with the ValidTrust protocol on Stellar.**
