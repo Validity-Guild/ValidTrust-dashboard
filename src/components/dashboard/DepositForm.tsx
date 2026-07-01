@@ -1,102 +1,44 @@
-/**
- * @file DepositForm.tsx
- * @description A form component that handles token deposits into the ValidTrust Network vault.
- * It allows users to specify an amount of VLD tokens and initiates the deposit transaction.
- * 
- * Features:
- * - Real-time input validation for numeric values.
- * - Integration with network-specific decimal handling (7 decimals by default).
- * - Responsive UI with clear loading and disabled states.
- * 
- * @module components/dashboard/DepositForm
- */
-
 import React, { useState } from 'react';
 import { parseAmount } from '../../services/stellar/contractHelpers';
+import { ArrowDownLeft, Loader2 } from 'lucide-react';
 
-/**
- * Props for the DepositForm component.
- * 
- * @interface DepositFormProps
- * @property {(amount: string) => Promise<void>} onDeposit - Async callback to handle the deposit transaction.
- * @property {boolean} isLoading - State indicating if a deposit transaction is currently in progress.
- */
 interface DepositFormProps {
   onDeposit: (amount: string) => Promise<void>;
   isLoading: boolean;
 }
 
-/**
- * DepositForm Component
- * 
- * Renders a controlled input field for the deposit amount and a submission button.
- * Validates that the input is a valid number before calling the onDeposit callback.
- * 
- * @param {DepositFormProps} props - The component props.
- * @returns {JSX.Element} The rendered DepositForm.
- * 
- * @example
- * <DepositForm 
- *   onDeposit={async (amt) => await handleDeposit(amt)} 
- *   isLoading={false} 
- * />
- */
 export const DepositForm: React.FC<DepositFormProps> = ({ onDeposit, isLoading }) => {
-  /**
-   * State to track the raw input value from the user.
-   * Initialized to an empty string to show the placeholder.
-   */
   const [amount, setAmount] = useState('');
 
-  /**
-   * Handles the form submission event.
-   * Prevents default browser behavior, validates input, and parses the amount
-   * to its smallest unit (stroops) before passing it to the parent handler.
-   * 
-   * @param {React.FormEvent} e - The submission event.
-   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Basic validation: ensure amount exists and is a number
-    if (!amount || isNaN(Number(amount))) {
-      console.warn("Invalid deposit amount entered:", amount);
-      return;
-    }
-    
+    if (!amount || isNaN(Number(amount)) || Number(amount) <= 0) return;
+
     try {
-      // Convert the user-friendly decimal string to the contract-expected integer (7 decimals)
       const parsedAmount = parseAmount(amount);
-      
-      // Execute the deposit callback
       await onDeposit(parsedAmount);
-      
-      // Clear the input field upon successful initiation
       setAmount('');
     } catch (error) {
-      // Error handling is usually managed by the parent via the returned promise,
-      // but we log it here for developer visibility.
-      console.error("Failed to process deposit form submission:", error);
+      console.error("Deposit failed:", error);
     }
   };
 
-  /**
-   * Determines if the submit button should be disabled.
-   * Button is disabled if:
-   * 1. A transaction is already loading.
-   * 2. The amount input is empty.
-   * 3. The amount is not a positive number.
-   */
-  const isSubmitDisabled = isLoading || !amount || Number(amount) <= 0;
-
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-      <h3 className="text-xl font-bold text-gray-900 mb-4">Deposit</h3>
-      
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <div className="card p-6">
+      <div className="flex items-center gap-3 mb-5">
+        <div className="w-10 h-10 bg-gradient-to-br from-success-50 to-green-100 rounded-2xl flex items-center justify-center">
+          <ArrowDownLeft className="text-success-600" size={22} />
+        </div>
         <div>
-          <label htmlFor="deposit-amount" className="block text-sm font-medium text-gray-700 mb-1">
-            Amount (VLD)
+          <h3 className="text-lg font-bold text-gray-900">Deposit Tokens</h3>
+          <p className="text-sm text-gray-500">Lock VLD into the vault</p>
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="deposit-amount" className="block text-sm font-semibold text-gray-700 mb-2">
+            Amount
           </label>
           <div className="relative">
             <input
@@ -107,31 +49,32 @@ export const DepositForm: React.FC<DepositFormProps> = ({ onDeposit, isLoading }
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               disabled={isLoading}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition disabled:bg-gray-50"
+              className="input-field pr-12"
               placeholder="0.00"
               required
-              aria-describedby="deposit-help"
             />
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
+              <span className="text-sm font-semibold text-gray-400">VLD</span>
+            </div>
           </div>
-          <p id="deposit-help" className="mt-2 text-xs text-gray-500">
-            Enter the amount of VLD tokens you wish to lock in the vault.
-          </p>
         </div>
 
         <button
           type="submit"
-          disabled={isSubmitDisabled}
-          className="w-full bg-brand-600 hover:bg-brand-700 text-white font-medium py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={isLoading || !amount || Number(amount) <= 0}
+          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-success-500 to-success-600 hover:from-success-600 hover:to-success-700 text-white font-semibold py-3 rounded-xl transition-all shadow-sm hover:shadow-md disabled:opacity-50"
         >
           {isLoading ? (
-            <span className="flex items-center justify-center">
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
+            <>
+              <Loader2 className="animate-spin" size={20} />
               Processing...
-            </span>
-          ) : 'Deposit Tokens'}
+            </>
+          ) : (
+            <>
+              <ArrowDownLeft size={20} />
+              Deposit Now
+            </>
+          )}
         </button>
       </form>
     </div>
