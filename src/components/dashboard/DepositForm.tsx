@@ -1,6 +1,6 @@
 /**
  * @file DepositForm.tsx
- * @description A form component that handles token deposits into the Validity Network vault.
+ * @description A form component that handles token deposits into the ValidTrust Network vault.
  * It allows users to specify an amount of VLD tokens and initiates the deposit transaction.
  * 
  * Features:

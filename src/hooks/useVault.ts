@@ -1,7 +1,7 @@
 /**
  * @file useVault.ts
  * @description A custom React hook that manages the interaction between the dashboard UI
- * and the Validity Network vault smart contract.
+ * and the ValidTrust Network vault smart contract.
  * 
  * This hook encapsulates all vault-related state management, including:
  * - Current user balance in the vault.
@@ -75,7 +75,7 @@ export const useVault = () => {
     try {
       /**
        * @todo Replace with actual SDK call:
-       * const vault = new ValidityVault(VAULT_CONTRACT_ID);
+       * const vault = new ValidTrustVault(VAULT_CONTRACT_ID);
        * const bal = await vault.getBalance(address);
        */
       

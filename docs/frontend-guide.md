@@ -10,7 +10,7 @@ We follow atomic design principles where possible:
 ## Hooks Usage
 
 - **`useWallet`**: Manages the connection to the Stellar wallet (Freighter). It provides the connected address, connection state, and a method to sign transactions.
-- **`useVault`**: Handles the business logic for the Validity Vault. It depends on `useWallet` for the active address and provides functions like `deposit`, `withdraw`, and `claimRewards`.
+- **`useVault`**: Handles the business logic for the ValidTrust Vault. It depends on `useWallet` for the active address and provides functions like `deposit`, `withdraw`, and `claimRewards`.
 
 ## Extension Points
 

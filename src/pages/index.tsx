@@ -8,17 +8,17 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
       <Head>
-        <title>Validity Dashboard - Stellar Smart Contracts</title>
-        <meta name="description" content="Interact with Validity smart contracts on the Stellar network." />
+        <title>ValidTrust Dashboard - Stellar Smart Contracts</title>
+        <meta name="description" content="Interact with ValidTrust smart contracts on the Stellar network." />
       </Head>
 
       <div className="max-w-3xl space-y-8">
         <h1 className="text-5xl font-extrabold tracking-tight text-gray-900 sm:text-6xl">
-          Interact with <span className="text-brand-600">Validity</span> Smart Contracts
+          Interact with <span className="text-brand-600">ValidTrust</span> Smart Contracts
         </h1>
         
         <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-          A modern, open-source dashboard for depositing, withdrawing, and claiming rewards using the Axionvera SDK and Soroban RPC.
+          A modern, open-source dashboard for depositing, withdrawing, and claiming rewards using the ValidTrust SDK and Soroban RPC.
         </p>
 
         <div className="flex justify-center gap-4 pt-6">
@@ -30,7 +30,7 @@ export default function Home() {
           </Link>
           
           <a 
-            href="https://github.com/validity-network/validity-dashboard" 
+            href="https://github.com/validtrust-network/validtrust-dashboard" 
             target="_blank" 
             rel="noopener noreferrer"
             className="px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-xl font-bold text-lg hover:bg-gray-50 transition"

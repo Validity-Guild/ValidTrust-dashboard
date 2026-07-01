@@ -15,7 +15,7 @@ export const Navbar = () => {
       <div className="flex items-center space-x-4">
         <Link href="/" className="text-xl font-bold text-brand-600 flex items-center gap-2">
           <div className="w-8 h-8 bg-brand-500 rounded-full flex items-center justify-center text-white">V</div>
-          Validity Dashboard
+          ValidTrust Dashboard
         </Link>
         <div className="hidden md:flex space-x-4">
           <Link href="/dashboard" className="text-gray-600 hover:text-brand-500 font-medium">

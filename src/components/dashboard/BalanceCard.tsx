@@ -1,6 +1,6 @@
 /**
  * @file BalanceCard.tsx
- * @description This component displays the user's current vault balance in the Validity Network.
+ * @description This component displays the user's current vault balance in the ValidTrust Network.
  * It provides a visual representation of the tokens held in the smart contract and allows users
  * to trigger the rewards claiming process.
  * 

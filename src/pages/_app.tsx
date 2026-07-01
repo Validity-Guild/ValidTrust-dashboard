@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </main>
       <footer className="mt-16 text-center text-sm text-gray-500 py-6 border-t border-gray-200">
-        <p>© {new Date().getFullYear()} Validity Dashboard. Open Source.</p>
+        <p>© {new Date().getFullYear()} ValidTrust Dashboard. Open Source.</p>
         <div className="mt-2 flex justify-center gap-4">
           <a href="#" className="hover:text-brand-600 transition">GitHub</a>
           <a href="#" className="hover:text-brand-600 transition">Documentation</a>
