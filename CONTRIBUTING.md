@@ -29,23 +29,11 @@ Thank you for your interest in contributing to the ValidTrust Dashboard! We are 
   ```
 - Make sure to update the documentation in the `docs/` directory if you introduce architectural changes.
 
-## Drips and Drips Wave Contribution
-
-This project participates in [Drips](https://drips.network) and [Drips Wave](https://docs.drips.network/wave/).
-
-### Finding Issues to Work On
+## Finding Issues to Work On
 - Look for issues labeled with:
   - `good first issue` - Great for first-time contributors
   - `help wanted` - Issues that need assistance
-  - `drips-wave` - Issues eligible for Drips Wave
   - `bounty-ready` - Issues with potential bounties
-
-### Drips Wave Tasks
-Issues labeled `drips-wave` are eligible for Drips Wave contribution cycles. These issues typically have:
-- Clear acceptance criteria
-- Estimated difficulty level
-- Expected files or modules to modify
-- Testing requirements
 
 ## Open TODOs for Contributors
 
